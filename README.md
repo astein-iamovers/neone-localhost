@@ -75,7 +75,7 @@ There you will have server1, server2 and baseUrlKeyCloak
 
 12. Generate a new Product on ne-one-2 using the call "Create Product". Looking at the log of ne-one-1 you should receive a notification.
 
-IMPORTANT: With the current setup, ne-one-1 will receive a notification and ping the mock server. To change this behaviour, edit the property 'QUARKUS_REST_CLIENT_NOTIFICATION_CLIENT_URL' in the docker-compose ne-one-1 configuration to point to your server. Ne-one-1 will foward the notification to the <your-host>/notifications.
+IMPORTANT: In the current setup, *ne-one-1* will receive a notification and send a ping to the mock server. To modify this behavior, update the 'QUARKUS_REST_CLIENT_NOTIFICATION_CLIENT_URL' property in the *ne-one-1* configuration within the Docker Compose file to point to your server. *Ne-one-1* will then forward the notification to *(your-host)/notifications*.
 
 ## Add NE:ONE server into NE:ONE Play
 
