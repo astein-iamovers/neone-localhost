@@ -51,6 +51,8 @@ services:
             - QUARKUS_REST_CLIENT_SUBSCRIPTION_CLIENT_URL=http://mockserver:1080   
             - QUARKUS_REST_CLIENT_NOTIFICATION_CLIENT_URL=http://mockserver:1080     
             - QUARKUS_REST_CLIENT_ACTION_REQUEST_CLIENT_URL=http://mockserver:1080
+            - FORWARD_NOTIFICATIONS=true
+            - QUARKUS_LOG_MIN_LEVEL=DEBUG
 
         depends_on:
             keycloak:
@@ -89,7 +91,8 @@ services:
             - QUARKUS_HTTP_CORS_EXPOSED_HEADERS=location,revision,latest-revision,type
             - QUARKUS_REST_CLIENT_SUBSCRIPTION_CLIENT_URL=http://mockserver:1080   
             - QUARKUS_REST_CLIENT_NOTIFICATION_CLIENT_URL=http://mockserver:1080     
-            - QUARKUS_REST_CLIENT_ACTION_REQUEST_CLIENT_URL=http://mockserver:1080        
+            - QUARKUS_REST_CLIENT_ACTION_REQUEST_CLIENT_URL=http://mockserver:1080  
+            - FORWARD_NOTIFICATIONS=true
             - QUARKUS_LOG_MIN_LEVEL=DEBUG
             
         depends_on:
