@@ -18,11 +18,15 @@ Welcome to the ONE Record Two Nodes, in this document you will find all the inst
    ```bash
    cd one-record-two-nodes/docker-compose
    ```
-3) Start all services with [docker compose](https://docs.docker.com/compose/)
+   If you have Mac or Linux, please reset folder permissions 
+   ```bash
+   chmod -R 755 ./
+   ```
+4) Start all services with [docker compose](https://docs.docker.com/compose/)
    ```bash
    docker compose up -d
    ```
-4) Wait until all containers are up and running:
+5) Wait until all containers are up and running:
    ```bash
    [+] Running 6/6
     ✔ Network docker-compose_default            Created 0.0s 
@@ -31,7 +35,7 @@ Welcome to the ONE Record Two Nodes, in this document you will find all the inst
     ✔ Container docker-compose-ne-one-server-1  Started 0.0s 
     ✔ Container docker-compose-graph-db-setup-1 Started 0.0s
    ```
-5) Try to access the ONE Record Server by  http://localhost:8080 or http://localhost:8081 using your favorite browser. 
+6) Try to access the ONE Record Server by  http://localhost:8080 or http://localhost:8081 using your favorite browser. 
    You should see a HTTP Error 401, because you did not authenticate yet. But this confirms that the ONE Record Server is up and running.
 
 # Overview of services
@@ -44,7 +48,7 @@ Welcome to the ONE Record Two Nodes, in this document you will find all the inst
 | ne-one play | [ne-one play](https://github.com/aloccid-iata/neoneplay) | http://localhost:3001 |
 | graphdb | GraphDB database as database backend for ne-one-1 and ne-one-2 on two separate repositories (neone and neone2) | http://localhost:7200 |
 | keycloak | Identity provider for ne-one-1 and ne-one-2 servers to authenticate ONE Record clients and to obtain tokens for outgoing requests. <br/> **Preconfigured client_id:** neone-client<br/> **Preconfigured client_secret:** lx7ThS5aYggdsMm42BP3wMrVqKm9WpNY  | http://localhost:8989 <br/> (username/password: admin/admin)|
-| mockserver | A mock server that displays all notification, subscription and action request and replies with specific patterns | http://localhost:1080 |
+| mockserver | A mock server that displays all notification, subscription and action request and replies with specific patterns | http://localhost:1080/mockserver/dashboard |
 
 IMPORTANT: To simplify the setup, both NE:ONE servers are connected to a single Keycloak server, sharing the same user account.
 
