@@ -1,8 +1,8 @@
 services:
     ne-one-play:
         build: 
-            context: .
-            dockerfile: ne-one-play/Dockerfile
+            context: ./ne-one-play
+            dockerfile: Dockerfile
         ports:
             - "3001:3000"
         depends_on:
