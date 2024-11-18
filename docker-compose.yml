@@ -1,8 +1,9 @@
 services:
     ne-one-play:
-        build: 
+        build:
             context: ./ne-one-play
             dockerfile: Dockerfile
+        platform: linux/amd64
         ports:
             - "3001:3000"
         depends_on:
@@ -49,9 +50,9 @@ services:
             - QUARKUS_HTTP_CORS_EXPOSED_HEADERS=location,revision,latest-revision,type
             - FORWARD_NOTIFICATIONS=true
             - NOTIFICATION_SEND_INTERVAL=10s
-            - QUARKUS_REST_CLIENT_SUBSCRIPTION_CLIENT_URL=http://notification-handler:5000
-            - QUARKUS_REST_CLIENT_NOTIFICATION_CLIENT_URL=http://notification-handler:5000
-            - QUARKUS_REST_CLIENT_ACTION_REQUEST_CLIENT_URL=http://notification-handler:5000
+            - QUARKUS_REST_CLIENT_SUBSCRIPTION_CLIENT_URL=http://localhost:5001
+            - QUARKUS_REST_CLIENT_NOTIFICATION_CLIENT_URL=http://localhost:5001
+            - QUARKUS_REST_CLIENT_ACTION_REQUEST_CLIENT_URL=http://localhost:5001
             - QUARKUS_LOG_MIN_LEVEL=DEBUG
 
         depends_on:
@@ -115,4 +116,4 @@ services:
             context: ./notification-handler
             dockerfile: Dockerfile
         ports:
-            - "5000:5000"
+            - "5001:5000"
